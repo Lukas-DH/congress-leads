@@ -116,7 +116,7 @@ body {
   }
   
   .product-item.selected {
-    background-color: #7129A6; /* Change the background when selected */
+    background-color: #D892FF; /* Change the background when selected */
     color: white;
     border-color: #7129A6;
     animation: glowing 1.5s infinite alternate; /* Glowing animation */
