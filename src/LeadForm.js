@@ -125,7 +125,9 @@ function LeadForm() {
           <div className="product-selection">
             <button
               type="button"
-              className={`product-item ${formData.productInterest.includes('Product 1') ? 'selected' : ''}`}
+            //   className={`product-item ${formData.productInterest.includes('Product 1') ? 'selected' : ''}`}
+            className={`product-item ${formData.productInterest.includes('Genea Biomedx') ? 'selected' : ''}`}
+
               onClick={() => toggleProductInterest('Genea Biomedx')}
             >
               <img src="/product1-logo.png" alt="Product 1 Logo" className="product-logo" />
@@ -133,7 +135,9 @@ function LeadForm() {
             </button>
             <button
               type="button"
-              className={`product-item ${formData.productInterest.includes('Product 2') ? 'selected' : ''}`}
+            //   className={`product-item ${formData.productInterest.includes('Product 2') ? 'selected' : ''}`}
+            className={`product-item ${formData.productInterest.includes('Leica') ? 'selected' : ''}`}
+
               onClick={() => toggleProductInterest('Leica')}
             >
               <img src="/product2-logo.png" alt="Product 2 Logo" className="product-logo" />
@@ -141,7 +145,9 @@ function LeadForm() {
             </button>
             <button
               type="button"
-              className={`product-item ${formData.productInterest.includes('Product 3') ? 'selected' : ''}`}
+            //   className={`product-item ${formData.productInterest.includes('Product 3') ? 'selected' : ''}`}
+            className={`product-item ${formData.productInterest.includes('Cryolock') ? 'selected' : ''}`}
+
               onClick={() => toggleProductInterest('Cryolock')}
             >
               <img src="/product3-logo.png" alt="Product 3 Logo" className="product-logo" />
