@@ -64,7 +64,7 @@ function LeadForm() {
     );
   };
 
-  // Show thank you message after form is submitted
+  // Show thank you message after form is submitted1
   if (formSubmitted) {
     return (
       <div className="thank-you-message">
