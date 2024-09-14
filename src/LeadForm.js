@@ -45,10 +45,9 @@ function LeadForm() {
     };
 
     emailjs.send(
-      'service_qx2dnrh',        // Replace with your EmailJS service ID
-      'template_89c4pp3',       // Replace with your EmailJS template ID
-      emailData,                // Send the form data
-      'QWI4ysWFZ2HmOZ7po'         // Replace with your EmailJS public key
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,   // Access service ID from env
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,  // Access template ID from env
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY    // Access public key from env
     ).then(
       (response) => {
         console.log('SUCCESS!', response.status, response.text);
