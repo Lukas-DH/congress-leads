@@ -44,31 +44,7 @@ function LeadForm() {
     console.log('Form Data: ', formData);
     // You can send the data to the backend API or handle form submission here
   };
-
-  // Prepare the data object for EmailJS
-  const emailData = {
-    name: formData.name,
-    company: formData.company,
-    email: formData.email,
-    telephone: formData.telephone,
-    productInterest: formData.productInterest.join(', ')
-  };
-
-  emailjs.send(
-    'service_qx2dnrh',       // Replace with your EmailJS service ID
-    'template_89c4pp3',      // Replace with your EmailJS template ID
-    emailData,               // Data to be sent in the email
-    'QWI4ysWFZ2HmOZ7po'           // Replace with your EmailJS user ID
-  ).then(
-    (response) => {
-      console.log('SUCCESS!', response.status, response.text);
-      alert('Lead data submitted successfully!');
-    },
-    (error) => {
-      console.error('FAILED...', error);
-      alert('Failed to submit lead data. Please try again.');
-    }
-  );
+  
 
   return (
     <div className="lead-form-container">
