@@ -164,12 +164,12 @@ body {
   }
 
   /* Keyframes for the glowing effect */
-@keyframes glowing {
+/* @keyframes glowing {
   0% {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 15px #D892FF, 0 0 20px #D892FF;
   }
   100% {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 30px #7129A6, 0 0 40px #7129A6;
   }
-}
+} */
   
