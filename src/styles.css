@@ -121,6 +121,7 @@ body {
     border-color: #7129A6;
     animation: glowing 1.5s infinite alternate; /* Glowing animation */
   }
+
   
   .product-item:hover {
     background-color: #D892FF;
@@ -162,6 +163,27 @@ body {
       margin-bottom: 15px;
     }
   }
+
+  /* Thank You Message Styling */
+.thank-you-message {
+  text-align: center;
+  padding: 50px;
+  background-color: #7129A6;
+  color: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.thank-you-message h1 {
+  font-size: 3rem;
+}
+
+.thank-you-message p {
+  font-size: 1.5rem;
+}
 
   /* Keyframes for the glowing effect */
 /* @keyframes glowing {
