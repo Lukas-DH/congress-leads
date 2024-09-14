@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from 'emailjs-com';
 import './styles.css';
 
 function LeadForm() {
@@ -43,6 +44,31 @@ function LeadForm() {
     console.log('Form Data: ', formData);
     // You can send the data to the backend API or handle form submission here
   };
+
+  // Prepare the data object for EmailJS
+  const emailData = {
+    name: formData.name,
+    company: formData.company,
+    email: formData.email,
+    telephone: formData.telephone,
+    productInterest: formData.productInterest.join(', ')
+  };
+
+  emailjs.send(
+    'YOUR_SERVICE_ID',       // Replace with your EmailJS service ID
+    'YOUR_TEMPLATE_ID',      // Replace with your EmailJS template ID
+    emailData,               // Data to be sent in the email
+    'YOUR_USER_ID'           // Replace with your EmailJS user ID
+  ).then(
+    (response) => {
+      console.log('SUCCESS!', response.status, response.text);
+      alert('Lead data submitted successfully!');
+    },
+    (error) => {
+      console.error('FAILED...', error);
+      alert('Failed to submit lead data. Please try again.');
+    }
+  );
 
   return (
     <div className="lead-form-container">
