@@ -87,25 +87,28 @@ body {
   }
 
   .product-selection {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Auto-fit with min size */
+    gap: 10px; /* Space between buttons */
+    justify-items: center; /* Center the items */
     margin-top: 15px;
-    gap: 20px;
   }
   
   .product-item {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     background-color: #F3F2F4;
     border: 2px solid transparent;
     border-radius: 8px;
     padding: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease, border-color 0.3s ease;
-    width: 120px; /* Adjust the width of the button */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 15px #D892FF; /* Initial glow when selected */
-
+    width: 100%; /* Full width inside the grid cell */
+    max-width: 150px; /* Limit the width */
+    height: 150px; /* Fixed height for uniformity */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 15px #80698d;
   }
   
   .product-item input[type="checkbox"] {
@@ -116,22 +119,23 @@ body {
   }
   
   .product-item.selected {
-    background-color: #D892FF; /* Change the background when selected */
+    background-color: #D892FF;
     color: white;
     border-color: #7129A6;
-    animation: glowing 1.5s infinite alternate; /* Glowing animation */
+    animation: glowing 1.5s infinite alternate;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 15px #D892FF;
   }
 
   
   .product-item:hover {
-    background-color: #D892FF;
+    background-color: #e5c2f8;
   }
   
   .product-logo {
-    width: 80%; /* Ensure the logo scales properly */
+    width: 80%;
     height: auto;
     object-fit: contain;
-    max-height: 100px; /* Set a maximum height for the logos */
+    max-height: 100px;
     margin-bottom: 8px;
   }
   
@@ -154,13 +158,17 @@ body {
   
   @media (max-width: 768px) {
     .product-selection {
-      flex-direction: column;
-      align-items: center;
+      grid-template-columns: repeat(2, 1fr); /* Display 2 columns on small screens */
     }
   
     .product-item {
-      width: 80%;
-      margin-bottom: 15px;
+      width: 100%; /* Full width in smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .product-selection {
+      grid-template-columns: 1fr; /* Stack in one column for very small screens */
     }
   }
 
@@ -184,6 +192,15 @@ body {
 .thank-you-message p {
   font-size: 1.5rem;
 }
+
+
+.consent-text {
+  font-size: 0.875rem; /* Slightly smaller font size */
+  color: #666; /* Light grey for non-intrusive text */
+  margin-top: 10px;
+  line-height: 1.4;
+  text-align: left;
+} 
 
   /* Keyframes for the glowing effect */
 /* @keyframes glowing {

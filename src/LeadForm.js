@@ -13,16 +13,30 @@ function LeadForm() {
 
   const [formSubmitted, setFormSubmitted] = useState(false); // New state to handle form submission
 
-  // Toggle product interest selection
   const toggleProductInterest = (product) => {
     setFormData((prevState) => {
+      // Check if the first product is clicked
+      if (product === 'All products') {
+        const allSelected = prevState.productInterest.length === 6; // Assuming there are 6 products
+        if (allSelected) {
+          return {
+            ...prevState,
+            productInterest: [] // Deselect all
+          };
+        } else {
+          return {
+            ...prevState,
+            productInterest: ['All products', 'Timelapse', 'identitovigilence', 'milieux de culture', 'Microscopie', 'Cryolock'] // Select all
+          };
+        }
+      }
+  
+      // Normal toggle logic for individual items
       const isSelected = prevState.productInterest.includes(product);
       if (isSelected) {
         return {
           ...prevState,
-          productInterest: prevState.productInterest.filter(
-            (item) => item !== product
-          ),
+          productInterest: prevState.productInterest.filter((item) => item !== product),
         };
       } else {
         return {
@@ -32,6 +46,7 @@ function LeadForm() {
       }
     });
   };
+  
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -76,10 +91,10 @@ function LeadForm() {
 
   return (
     <div className="lead-form-container">
-      <h2>Sign Up for Product Information</h2>
+      <h2>Inscrivez-vous pour obtenir des informations sur les produits</h2>
       <form onSubmit={sendEmail}>
         <div className="form-group">
-          <label htmlFor="name">Name:</label>
+          <label htmlFor="name">Nom complet:<span style={{ color: 'red' }}>*</span></label>
           <input
             type="text"
             name="name"
@@ -89,7 +104,7 @@ function LeadForm() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="company">Company:</label>
+          <label htmlFor="company">Centre, clinique, hôpital:<span style={{ color: 'red' }}>*</span></label>
           <input
             type="text"
             name="company"
@@ -99,7 +114,7 @@ function LeadForm() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email">Email:<span style={{ color: 'red' }}>*</span></label>
           <input
             type="email"
             name="email"
@@ -109,13 +124,12 @@ function LeadForm() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="telephone">Telephone:</label>
+          <label htmlFor="telephone">Telephone (Optional):</label>
           <input
             type="tel"
             name="telephone"
             value={formData.telephone}
             onChange={(e) => setFormData({ ...formData, telephone: e.target.value })}
-            required
           />
         </div>
 
@@ -123,25 +137,63 @@ function LeadForm() {
         <div className="form-group">
           <label>Product Interest:</label>
           <div className="product-selection">
+
+
             <button
               type="button"
             //   className={`product-item ${formData.productInterest.includes('Product 1') ? 'selected' : ''}`}
-            className={`product-item ${formData.productInterest.includes('Genea Biomedx') ? 'selected' : ''}`}
+            className={`product-item ${formData.productInterest.includes('All products') ? 'selected' : ''}`}
 
-              onClick={() => toggleProductInterest('Genea Biomedx')}
+              onClick={() => toggleProductInterest('All products')}
             >
-              <img src="/product1-logo.png" alt="Product 1 Logo" className="product-logo" />
-              <span>Genea Biomedx</span>
+              <img src="/caring-logo.png" alt="Product 1 Logo" className="product-logo" />
+              <span>All products</span>
             </button>
+
+            <button
+              type="button"
+            //   className={`product-item ${formData.productInterest.includes('Product 1') ? 'selected' : ''}`}
+            className={`product-item ${formData.productInterest.includes('Timelapse') ? 'selected' : ''}`}
+
+              onClick={() => toggleProductInterest('Timelapse')}
+            >
+              <img src="/geri.jpeg" alt="Geri" className="product-logo" />
+              <span>Timelapse</span>
+            </button>
+
+            <button
+              type="button"
+            //   className={`product-item ${formData.productInterest.includes('Product 1') ? 'selected' : ''}`}
+            className={`product-item ${formData.productInterest.includes('identitovigilence') ? 'selected' : ''}`}
+
+              onClick={() => toggleProductInterest('identitovigilence')}
+            >
+              <img src="/gidget.jpeg" alt="gidget" className="product-logo" />
+              <span>identitovigilence</span>
+            </button>
+
+            <button
+              type="button"
+            //   className={`product-item ${formData.productInterest.includes('Product 1') ? 'selected' : ''}`}
+            className={`product-item ${formData.productInterest.includes('milieux de culture') ? 'selected' : ''}`}
+
+              onClick={() => toggleProductInterest('milieux de culture ')}
+            >
+              <img src="/gems.jpeg" alt="Gems" className="product-logo" />
+              <span>milieux de culture </span>
+            </button>
+
+
+
             <button
               type="button"
             //   className={`product-item ${formData.productInterest.includes('Product 2') ? 'selected' : ''}`}
-            className={`product-item ${formData.productInterest.includes('Leica') ? 'selected' : ''}`}
+            className={`product-item ${formData.productInterest.includes('Microscopie') ? 'selected' : ''}`}
 
-              onClick={() => toggleProductInterest('Leica')}
+              onClick={() => toggleProductInterest('Microscopie')}
             >
               <img src="/product2-logo.png" alt="Product 2 Logo" className="product-logo" />
-              <span>Leica</span>
+              <span>Microscopie</span>
             </button>
             <button
               type="button"
@@ -150,13 +202,16 @@ function LeadForm() {
 
               onClick={() => toggleProductInterest('Cryolock')}
             >
-              <img src="/product3-logo.png" alt="Product 3 Logo" className="product-logo" />
+              <img src="/cryolock.jpeg" alt="cryolock" className="product-logo" />
               <span>Cryolock</span>
             </button>
           </div>
         </div>
 
         <button type="submit" className="submit-button">Submit</button>
+        <p className="consent-text">
+    By clicking "Submit," I agree to the collection and processing of my personal data in accordance with Caring IVF's Privacy Policy. I also consent to receive marketing communications from Caring IVF.
+  </p>
       </form>
     </div>
   );

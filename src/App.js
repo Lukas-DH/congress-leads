@@ -7,8 +7,8 @@ function App() {
     <div className="App">
       <header className="App-header">
       <img src="caring-logo.png" alt="Company Logo" />
-        <h1>Welcome to FFER</h1>
-        <p>Learn more about our products and sign up to receive updates!</p>
+        <h1>Bienvenus à la FFER</h1>
+        <p>Apprenez-en plus sur nos produits et inscrivez-vous pour recevoir des mises à jour !</p>
       </header>
       <main>
         <LeadForm />
