@@ -69,7 +69,7 @@ function LeadForm() {
         console.log('SUCCESS!', response.status, response.text);
         setFormSubmitted(true); // Set form submission state to true
         setTimeout(() => {
-          window.location.href = 'https://www.caringivf.com/'; // Redirect after 10 seconds
+          window.location.href = 'https://sea-turtle-app-qfyrw.ondigitalocean.app/'; // Redirect after 10 seconds
         }, 10000); // 10000ms = 10 seconds
       },
       (error) => {
