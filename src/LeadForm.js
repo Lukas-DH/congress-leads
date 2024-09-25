@@ -83,8 +83,8 @@ function LeadForm() {
   if (formSubmitted) {
     return (
       <div className="thank-you-message">
-        <h1>Thank You!</h1>
-        <p>Your submission has been received. You will be redirected shortly.</p>
+        <h1>Merci!</h1>
+        <p>Votre soumission a bien été reçue. Vous allez être redirigé sous peu.</p>
       </div>
     );
   }
@@ -169,7 +169,7 @@ function LeadForm() {
               onClick={() => toggleProductInterest('identitovigilence')}
             >
               <img src="/gidget.jpeg" alt="gidget" className="product-logo" />
-              <span>identitovigilence</span>
+              <span>Identitovigilence</span>
             </button>
 
             <button
@@ -180,7 +180,7 @@ function LeadForm() {
               onClick={() => toggleProductInterest('milieux de culture ')}
             >
               <img src="/gems.jpeg" alt="Gems" className="product-logo" />
-              <span>milieux de culture </span>
+              <span>Milieux de culture </span>
             </button>
 
 
