@@ -169,7 +169,7 @@ function LeadForm() {
               onClick={() => toggleProductInterest('identitovigilence')}
             >
               <img src="/gidget.jpeg" alt="gidget" className="product-logo" />
-              <span>Identitovigilence</span>
+              <span>Identito-vigilence</span>
             </button>
 
             <button
